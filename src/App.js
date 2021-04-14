@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Search from "./Search/Search";
 import { SearchContext, MovieContext } from "./context/context";
 import "./App.css";
 
@@ -13,17 +14,17 @@ function App() {
 
 		const response = await fetch(
 			`http://www.omdbapi.com/?apikey=${OMDB_API}&s=${searchValue}`
-    );
-    
-    const data = await response.json()
-    console.log(data)
-    setMovieArray(data.search || [])
-  }
-  
-  const searchContextValueObj = {
-    movieSearchTitle: searchValue,
-    handleOnChange,
-  }
+		);
+
+		const data = await response.json();
+		console.log(data);
+		setMovieArray(data.search || []);
+	}
+
+	const searchContextValueObj = {
+		movieSearchTitle: searchValue,
+		handleOnChange,
+	};
 
 	return (
 		<div className="App">
